@@ -1,0 +1,14 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Werkplan.aux
+The style file: science.bst
+Database file #1: references.bib
+I was expecting a `,' or a `}'---line 62 of file references.bib
+ : 
+ : @misc{CERN_versnellers,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 71 of file references.bib
+ : 
+ : @article{standaardmodel,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+(There were 2 error messages)

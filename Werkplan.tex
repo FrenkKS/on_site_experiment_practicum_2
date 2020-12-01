@@ -1,0 +1,176 @@
+% Format verslag in LaTeX maken.
+% Lars Aalsma, Tutor Natuur- en Sterrenkunde 2014-2015
+% & Ramon Creyghton, tutor Natuur- en Sterrenkunde 2014-2016.
+% & David Fokkema, staflid natuurkundepracticum, september 2017.
+%
+% Dit document mag naar eigen inzicht aangepast en verspreid worden.
+% Her en der in dit document staan opmaak-opties en packages opgenomen, die afhankelijk van je voorkeuren kunnen worden aan- of uitgezet. Het is aan te raden je te verdiepen in de werking van deze opties (ze googlen is een start) voor je ze gebruikt.
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{fouriernc}        % Dit package kiest het lettertype. Laat dit weg voor standaard Computer Modern.
+\usepackage[utf8]{inputenc}   % Je kunt gewóón accenten typen, als je wilt
+\usepackage[T1]{fontenc}      % Nodig om de accenten ook ín de pdf te krijgen
+\usepackage[dutch]{babel}     % Figuur i.p.v. Figure, en NL afbrekingen
+\usepackage{graphicx}         % Voor \includegraphics om figuren in te voegen
+\usepackage{amssymb}          % Voor extra symbolen
+\usepackage{amsmath}          % Voor extra ondersteuning bij vergelijkingen (zie documentatie)
+\usepackage{natbib}           % Voor auteur-jaar citatie.
+\usepackage{a4wide}           % Past marges aan voor A4.
+\usepackage[small]{caption}   % Voor bijschriften met een iets kleinere lettergrootte dan de hoofdtekst.
+\usepackage{url}              % Voor het beter weergeven van url's (lang, of met speciale tekens)
+\usepackage{booktabs}         % Voor professionele tabellen
+\usepackage[output-decimal-marker={,},list-final-separator={ en }]{siunitx}          % Voor het typesetten en uitlijnen van getallen en eenheden, zie documentatie
+\usepackage[pdfusetitle]{hyperref}  % Voor handige links in je PDF. B.v. urls, referenties, etc.
+\usepackage{physics}
+
+\linespread{1.3}              % Iets grotere regelafstand: fijn voor degene die het nakijkt.
+
+% \renewcommand{\arraystretch}{1.5}   % Om rijen in tabellen wat ruimer rond de tekst te maken.
+
+%% DOCUMENT PROPERTIES
+\author{Frenk Klein Schiphorst} % vul in
+\title{Werkplan On-site Experiment} % Vul in.
+\date{\today}
+
+\begin{document}
+
+\suppressfloats[t]      % Nu volgt eigenlijk de eerste pagina van het document. Je wilt dan niet beginnen met een figuur. Dit commando (suppress floats at top of the page) onderdrukt een eventueel figuur en schuift dat naar een andere positie. Dit commando geldt alleen voor de *huidige* pagina.
+
+%%BEGIN VAN DE INHOUD VAN HET DOCUMENT
+
+\section{Onderzoeksvraag}
+Hoe goed is de stopping power voor en de dracht van alfadeeltjes in lucht, helium en koolstofdioxide te bepalen?
+
+\section{Context}
+Alfadeeltjes zijn hoogenergetische deeltjes die vrijkomen bij bepaalde soorten radioactief verval. Door deze hoge energie zijn ze potentieel schadelijk voor de gezondheid. De relatief hoge massa van alfadeeltjes in combinatie met de hoge energie zorgt echter ook voor een hoog ioniserend vermogen. Hierdoor zullen ze botsen met vrijwel elk deeltje dat ze tegenkomen en zijn ze veel makkelijker af te stoppen dan bijvoorbeeld gammastraling.
+
+\section{Theorie}
+Bij alfa-verval stoot een radioactieve kern een heliumkern uit. Deze heliumkernen worden alfadeeltjes genoemd. Alfadeeltjes zijn relatief veel groter en zwaarder dan bèta- en gammadeeltjes, en hebben ook een veel hogere energie. De energie wordt afgestaan door botsingen met atomen, die daardoor geëxciteerd of geïoniseerd kunnen worden. Door de hoge energie kunnen ze veel meer atomen exciteren en ioniseren dan bijvoorbeeld gammadeeltjes, omdat ze per interactie niet meteen al hun energie verliezen. De grootte en massa en de hoge energie van de alfadeeltjes zorgen echter ook voor een hoog ioniserend vermogen. Dit betekent dat ze botsen met vrijwel elk deeltje dat ze tegenkomen. Hierdoor verliezen ze hun energie veel sneller dan gammadeeltjes en kunnen ze veel minder ver doordringen in een materiaal.\par
+Alfadeeltjes kunnen al gestopt worden door een velletje papier. De kans dat ze door de huid heen komen is dus ook niet zo groot. Alfastraling is daarom vooral schadelijk als de bron het lichaam binnendringt, bijvoorbeeld door inslikken.\par
+Bij dit experiment wordt gebruik gemaakt van een americium-241 bron. Dit is een alfastraler. De vrijgekomen alfadeeltjes hebben een energie rond 5.5 MeV \cite{Americium241}. De precieze energieën en de percentages waarin ze voorkomen staan in tabel \ref{tab:table_1}. \par
+De stopping power voor een alfadeeltje in een bepaalde stof is gedefinieerd als:
+\begin{equation}
+\mathrm{stopping \ power} \equiv -\frac{\mathrm{d}T}{\mathrm{d}x}
+\label{eq:stopping_power}
+\end{equation}
+waarbij $\mathrm{d}T$ het energieverlies en $\mathrm{d}x$ de afgelegde afstand in het materiaal. Voor de theoretische waarden voor de stopping power, zie tabel \ref{tab:table_2}.\par
+Zoals gezegd verliezen alfadeeltjes energie door atomen te ioniseren. Elke ionisatie kost een gemiddelde energie $\epsilon$. Voor het aantal gevormde ionen $n$ per afgelegde afstand geldt dus:
+\begin{equation}
+n =  -\frac{\mathrm{d}T}{\mathrm{d}x}\frac{1}{\epsilon}
+\label{eq:ioniaties}
+\end{equation}
+Het aantal geïoniseerde deeltjes kan uitgezet worden tegen de afgelegde afstand in het materiaal in een zogenaamde Bragg-curve. Hieruit kan de dracht van een alfadeeltje in een bepaalde stof geschat worden. De dracht staat voor de maximale afstand die het deeltje kan afleggen in een bepaald materiaal.\par
+Het meten van de alfadeeltjes gebeurt met een surface barrier detector. Deze kan de kinetische energie meten van de binnenkomende deeltjes. De detector is echter heel gevoelig voor licht, en zal daarom afgedekt moeten worden. Er zal echter nog steeds achtergrond-straling binnenkomen. De energie daarvan is echter veel lager dan van de binnenkomende alfadeeltjes, en dus zal met een geschikt high pass filter de achtergrondstraling weggefilterd kunnen worden. Door geschikte waarden te kiezen voor de weerstand en de condensator in het high pass filter, zullen alleen de pieken van de binnenkomende alfadeeltjes nog te zien zijn.
+
+\begin{table}
+\caption{Energieën van vrijgekomen alfadeeltjes bij het verval van americium-241, en de percentages waarin het specifieke verval voorkomt. \cite{Americium241}}
+\centering
+\begin{tabular}{SS}
+\toprule
+{Energie [\si{MeV}]} & {Percentage} \\
+\midrule
+5.4857 & 85.2 \\
+5.4431 & 12.8 \\
+5.3884 & 1.4 \\
+\bottomrule
+\end{tabular}
+\label{tab:table_1}
+\end{table}
+
+\begin{table}
+\caption{Stopping power voor alfadeeltjes, met energie van ongeveer 5.5 MeV, in lucht, helium en koolstofdioxide. \cite{StoppingPower}}
+\centering
+\begin{tabular}{SS}
+\toprule
+{Stof} & {Stopping Power [\si{MeV cm^2/g}]} \\
+\midrule
+{lucht} & 7.122E+02 \\
+{helium} & 8.873E+02 \\
+{koolstofdioxide} & 7.154E+02 \\
+\bottomrule
+\end{tabular}
+\label{tab:table_2}
+\end{table}
+
+\section{Methode}
+Om de onderzoeksvraag te kunnen beantwoorden moet voor verschillende druk de overgebleven energie van de alfadeeltjes gemeten worden. Dit kan dan weer omgerekend worden naar een variabele afstand bij vaste druk, en hiermee is de stopping power en de dracht te berekenen.\par
+Bouw de opstelling (Pas dit gedeelte aan met beschrijving van de opstelling)\par
+(Meetopstelling in logboek)\par
+IJk de PicoMeter met de theoretische waarde van de alfadeeltjes met de hoogste energie. Zo wordt een formule verkregen voor de energie afhankelijk van de gemeten pulshoogte. \par
+Elke meting duurt 600 seconden. Er kunnen dus ongeveer 10-15 metingen per college gedaan worden. De metingen worden gedaan bij drukken tussen 0 en 750 Torr, oftewel 0 en 1 bar. Voor 10 metingen betekenen dat stappen van ongeveer 83.3 bar. Noteer bij elke meting de begin- en eindstand van de drukmeter en bepaal aan de hand hiervan het gemiddelde en de fout op de druk in de buis.\par
+
+\section{Foutenanalyse a priori}
+Bij het verval van americium-241 komen alfadeeltjes vrij met verschillende energieën. Het is van tevoren niet te bepalen welk deeltje vrij zal komen, dus moet hierin een schatting worden gedaan door bijvoorbeeld een gewogen gemiddelde van de verschillende energieën te nemen. Hier zit dan een fout op. \par
+De druk in de buis zal nooit helemaal precies afgesteld kunnen worden, dus hier zal ook een fout in zitten. \par
+De afstand van de bron tot de detector heeft ook een fout. \par
+De gemiddelde energie per ionisatie zal nooit precies kloppen met de werkelijke verloren energie. De fout hierop zal ook berekend moeten worden. \par
+
+
+
+
+\bibliographystyle{science}
+\bibliography{references}
+
+
+%\section{Figuren en tabellen}
+%Een voorbeeld van een figuur is op de volgende pagina gegeven, %zie figuur \ref{fig:figuur1}. Figuren staan nóóit in de lopende tekst. Pak een willekeurig artikel en je zult zien dat figuren óf bovenaan een pagina staan, óf onderaan een pagina, óf op een eigen pagina. Nooit in het midden. Probeer dus ook niet met \verb|[h]| o.i.d. de plaatsing van figuren te forceren. Over het algemeen maak je het alleen maar erger.
+
+%\begin{figure}  % Forceer je figuur niet naar [h]ere. Dat gebeurt in artikelen ook niet.
+%\centering
+%\includegraphics[scale=0.5]{figuur1}
+%\caption{Een figuur heeft een onderschrift. Een plaatje trekt al snel je aandacht weg van de hoofdtekst. Zodra je het plaatje snel bekeken hebt, is de natuurlijke neiging om `verder te lezen' en beweegt je aandacht naar onder het plaatje. Als dáár dan een stukje tekst met uitleg staat, wordt het sneller gelezen dan wanneer dat bóven de figuur staat. Blijkt uit onderzoek.}
+%\label{fig:figuur1}
+%\end{figure}
+
+%Een voorbeeld van een tabel is hieronder gegeven, zie tabel \ref{tab:tabel1}.
+
+%\begin{table}
+%\caption{Een tabel heeft een bovenschrift. Een plaatje of tabel (met veel witruimte eromheen) trekt al snel je aandacht weg van de hoofdtekst. Toch worden je ogen al snel richting de kop getrokken (wat staat er boven de kolommen?) en als dáár dan een stukje tekst met uitleg staat, lees je dat sneller dan wanneer het ónder de tabel staat. Blijkt uit onderzoek.}
+%\centering
+%\begin{tabular}{SS} % uitlijnen als getal, dus met de komma's b.v. recht onder elkaar.
+%\toprule
+%{Slingerlengte [\si{\centi\meter}]} & {Slingertijd [\si{\second}]} \\  % Kop moet tussen {} om uitlijning als getal te voorkomen
+%\midrule
+%5 & 4.5 \\
+%10 & 6.3 \\
+%15 & 7.8 \\
+%20 & 9.0 \\
+%25 & 10.0 \\
+%\bottomrule
+%\end{tabular}
+%\label{tab:tabel1}
+%\end{table}
+
+%\section{Een sectie}
+
+%Formules in \LaTeX\ gaan vanzelf al snel goed. Zo krijgt iedere vergelijking automatisch een nummer, dat keurig rechts wordt uitgelijnd. Menig student krijgt dat in Word o.i.d. niet goed voor elkaar. Denk er wel aan formules op te nemen in de lopende tekst.
+%\begin{equation}
+%  F = ma
+%  \label{eq:eerste-wet-newton}
+%\end{equation}
+%De eerste wet van Newton. Vergelijking \ref{eq:eerste-wet-newton} is níet opgenomen in de lopende tekst, en dat leest dus niet zo lekker door. Je moet jezelf afvragen: kan ik dit verhaal voorlezen? Als je het verhaal goed kunt voorlezen \emph{inclusief} de vergelijking, zonder haperingen, dan staat het goed.
+
+%Zo is bijvoorbeeld de trillingstijd van een slinger gegeven door
+%\begin{equation}
+%  T = 2\pi\sqrt{\frac{l}{g}},
+%  \label{eq:trillingstijd-slinger}
+%\end{equation}
+%met de trillingstijd $T$, de lengte van de slinger $l$ en de valversnelling $g$. Let ook op de komma aan het eind van vergelijking~\ref{eq:trillingstijd-slinger}. Dit stukje tekst kun je vloeiend voorlezen, zonder haperingen. Geef je vergelijkingen ook \emph{namen} om aan te refereren, en geen \emph{nummers}.
+
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor ullamcorper sapien, quis lacinia nibh pellentesque vel. Sed ultrices nunc vitae magna pulvinar ac posuere velit bibendum. Nunc placerat ornare libero nec viverra. Nulla ullamcorper diam orci, sit amet scelerisque nisl. Nam sapien felis, auctor vestibulum dignissim nec, egestas eget dolor. Suspendisse iaculis, diam pulvinar luctus iaculis, ipsum nisl consectetur nisi, a lacinia eros lacus vitae dui. In fermentum ante quis ante porttitor congue. Mauris sollicitudin rhoncus dictum. Donec pretium molestie tempus. Integer suscipit egestas erat sit amet volutpat. Nullam et magna risus. Nam vel nisi libero. Duis ultricies ipsum eu lorem congue vestibulum. Aenean ut felis velit, ac lacinia erat. In a dolor dignissim elit faucibus facilisis. Vivamus iaculis ornare lacus, viverra convallis sapien pulvinar vitae.
+
+%\section{Referentie voorbeelden}
+
+%\citet{Kachru2003} hebben aangetoond dat de Sitter vacua voorkomen in snaartheorie. Dit werd echter in een latere publicatie tegengesproken \citep{Bena2010}.
+
+%Refereren met LaTeX kan op twee manieren, zie ook Hoofdstuk 5 van de handleiding AVT. Hier voegen we referenties handmatig toe door gebruik te maken van thebibliography, zie de regels hieronder beginnend bij \begin{thebibliography}{}. Elke nieuwe referentie wordt toegevoegd met \bibitem.
+
+%In een \bibitem geeft de tekst tussen de [...] aan hoe de referentie verschijnt in de tekst. Tussen de {...} staat het label waarmee in de tekst naar de referentie kan worden verwezen. Refereren in de tekst wordt gedaan zoals hierboven (met \citet{<label>} en \citep{<label>}).
+
+%\begin{thebibliography}{}
+%\bibitem[Kachru \emph{et al.}(2003)]{Kachru2003} Kachru, S., Kallosh, R. \& Linde, A., De Sitter vacua in string theory, 2003, Phys.Rev., D68, 046005
+%\bibitem[Bena \emph{et al.}(2010)]{Bena2010} Bena, I., Grana, M., \& Halmagyi, N., On the Existence of Meta-stable Vacua in Klebanov-Strassler,  2010, JHEP, 1009, 087
+%\end{thebibliography}
+
+\end{document}

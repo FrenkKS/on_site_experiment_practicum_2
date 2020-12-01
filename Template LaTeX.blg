@@ -1,0 +1,8 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Template LaTeX.aux
+I couldn't open style file science.bst
+---line 32 of file Template LaTeX.aux
+ : \bibstyle{science
+ :                  }
+I'm skipping whatever remains of this command
+I found no style file---while reading file Template LaTeX.aux
+(There were 2 error messages)
