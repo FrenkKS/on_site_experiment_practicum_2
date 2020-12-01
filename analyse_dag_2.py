@@ -1,12 +1,10 @@
-## LET OP: foutenanalyse onvolledig
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from lmfit import models
 import lmfit
 
-spectrum_vacuum = pd.read_csv('ijkmeting_19_11_2.csv')
+spectrum_vacuum = pd.read_csv('ijkmeting_26_11.csv')
 
 pulseheights_ijk = spectrum_vacuum['pulseheight'].tolist()
 counts_ijk = spectrum_vacuum['counts'].tolist()
@@ -47,7 +45,7 @@ distances = []
 
 atm = 1013.249977
 
-pressures = [50, 100, 120, 150, 200, 300, 450, 470, 490, 500, 520]
+pressures = [470, 490, 500, 520]
 
 for pressure in pressures:
     spectrum = pd.read_csv(f'{pressure}mbar_meting_lucht.csv')
@@ -68,4 +66,3 @@ plt.scatter(distances, max_energies)
 plt.xlabel("distance (cm)")
 plt.ylabel("max remaining energy (MeV)")
 plt.show()
-
