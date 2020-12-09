@@ -48,9 +48,12 @@ distances = []
 atm = 1013.249977
 
 pressures = [50, 100, 120, 150, 200, 300, 450, 470, 490, 500]
+pressures_2 = [60.3, 111.2, 131.4, 166.9, 224.8, 352.3, 499.1, 519.0, 536.6, 554.2]
 
-for pressure in pressures:
-    spectrum = pd.read_csv(f'data_lucht/{pressure}mbar_meting_lucht.csv')
+average_pressures = []
+
+for index in range(len(pressures)):
+    spectrum = pd.read_csv(f'data_lucht/{pressures[index]}mbar_meting_lucht.csv')
 
     pulseheights = spectrum['pulseheight'].tolist()
     counts = spectrum['counts'].tolist()
@@ -60,7 +63,11 @@ for pressure in pressures:
     max_energy = max_pulseheight / pulse_per_mev
     max_energies.append(max_energy)
 
-    factor = atm / pressure
+    average_pressure = (pressures[index] + pressures_2[index]) / 2
+    average_pressures.append(average_pressure)
+
+    factor = atm / average_pressure
+
     distance = 5 / factor
     distances.append(distance)
 
@@ -68,4 +75,6 @@ plt.scatter(distances, max_energies)
 plt.xlabel("distance (cm)")
 plt.ylabel("max remaining energy (MeV)")
 plt.show()
+
+print(average_pressures)
 
