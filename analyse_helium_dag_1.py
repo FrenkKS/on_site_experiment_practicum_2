@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from lmfit import models
 import lmfit
 
-spectrum_vacuum = pd.read_csv('ijkmetingen/ijkmeting_19_11_2.csv')
+spectrum_vacuum = pd.read_csv('ijkmetingen/ijkmeting_3_12.csv')
 
 pulseheights_ijk = spectrum_vacuum['pulseheight'].tolist()
 counts_ijk = spectrum_vacuum['counts'].tolist()
@@ -47,10 +47,10 @@ distances = []
 
 atm = 1013.249977
 
-pressures = [50, 100, 120, 150, 200, 300, 450, 470, 490, 500]
+pressures_15cm = [30, 50, 100, 120, 150, 200, 300, 450, 600, 800, 820, 840, 860]
 
-for pressure in pressures:
-    spectrum = pd.read_csv(f'data_lucht/{pressure}mbar_meting_lucht.csv')
+for pressure in pressures_15cm:
+    spectrum = pd.read_csv(f'data_helium/{pressure}mbar_meting_helium.csv')
 
     pulseheights = spectrum['pulseheight'].tolist()
     counts = spectrum['counts'].tolist()
@@ -61,11 +61,27 @@ for pressure in pressures:
     max_energies.append(max_energy)
 
     factor = atm / pressure
-    distance = 5 / factor
+    distance = 15 / factor
+    distances.append(distance)
+
+pressures_20cm = [750, 770]
+
+for pressure in pressures_20cm:
+    spectrum = pd.read_csv(f'data_helium/{pressure}mbar_meting_helium_20cm.csv')
+
+    pulseheights = spectrum['pulseheight'].tolist()
+    counts = spectrum['counts'].tolist()
+
+    max_index = np.argmax(counts)
+    max_pulseheight = pulseheights[max_index]
+    max_energy = max_pulseheight / pulse_per_mev
+    max_energies.append(max_energy)
+
+    factor = atm / pressure
+    distance = 20 / factor
     distances.append(distance)
 
 plt.scatter(distances, max_energies)
 plt.xlabel("distance (cm)")
 plt.ylabel("max remaining energy (MeV)")
 plt.show()
-
