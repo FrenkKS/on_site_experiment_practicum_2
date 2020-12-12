@@ -28,8 +28,10 @@ print(f'The maximum pulseheight is {max_pulseheight_ijk:.3f} +/- {max_pulseheigh
 f = lambda x, a: a*x
 model = models.Model(f, name="linear_origin")
 
+max_energy_alpha = 5.4857
+
 df = pd.DataFrame([
-    [5.4857, max_pulseheight_ijk, max_pulseheight_ijk_err],
+    [max_energy_alpha, max_pulseheight_ijk, max_pulseheight_ijk_err],
 ], columns=['Energy', 'Pulseheight', 'PH_err'])
 
 fit = model.fit(df['Pulseheight'], x=df['Energy'], weights=1/df['PH_err'], a=40)
@@ -43,6 +45,8 @@ pulse_per_mev = fit.params['a'].value
 max_energies = []
 max_energies_err = []
 distances = []
+max_distances = []
+min_distances = []
 distances_err = []
 average_pressures = []
 average_pressures_err = []
@@ -81,6 +85,13 @@ for index in range(len(pressures)):
     distance = 5 / factor
     distance_err = np.sqrt((0.05 / factor)**2 + ((5 / factor**2) * factor_err)**2)
     distances.append(distance)
+
+    max_distance = distance + distance_err
+    min_distance = distance - distance_err
+
+    max_distances.append(max_distance)
+    min_distances.append(min_distance)
+
     distances_err.append(distance_err)
 
 # plt.scatter(distances, max_energies)
@@ -94,7 +105,21 @@ measurements_air = {
     'Distance': distances
 }
 
+measurements_air_max = {
+    'Max Energy': max_energies,
+    'Max Energy Error': max_energies_err,
+    'Distance': max_distances
+}
+
+measurements_air_min = {
+    'Max Energy': max_energies,
+    'Max Energy Error': max_energies_err,
+    'Distance': min_distances
+}
+
 df_air = pd.DataFrame(measurements_air)
+df_air_max = pd.DataFrame(measurements_air_max)
+df_air_min = pd.DataFrame(measurements_air_min)
 
 linear = lambda x, a, b: a*x + b
 model2 = models.Model(linear, name="linear")
@@ -106,15 +131,29 @@ plt.show()
 stopping_power_air = fit_air.params['a'].value
 stopping_power_air_kev = stopping_power_air * -1000
 
-stopping_power_air_err = fit_air.params['a'].stderr
-stopping_power_air_kev_err = stopping_power_air_err * 1000
+fit_air_max = model2.fit(df_air_max['Max Energy'], x=df_air_max['Distance'], weights=1/df_air_max['Max Energy Error'], a=-1, b=5.5)
+fit_air_min = model2.fit(df_air_min['Max Energy'], x=df_air_min['Distance'], weights=1/df_air_min['Max Energy Error'], a=-1, b=5.5)
 
-print(f'The stopping power of air is {stopping_power_air_kev:.3f} KeV +/- {stopping_power_air_kev_err:.3f} KeV')
+# minimal stopping power when max distance is used, and vice versa
+stopping_power_air_min = fit_air_max.params['a'].value
+stopping_power_air_min_kev = stopping_power_air_min * -1000
+
+stopping_power_air_max = fit_air_min.params['a'].value
+stopping_power_air_max_kev = stopping_power_air_max * -1000
+
+stopping_power_air_horizontal_err = (stopping_power_air_max_kev - stopping_power_air_min_kev) / 2
+stopping_power_air_vertical_err = fit_air.params['a'].stderr * 1000
+
+stopping_power_air_kev_err = np.sqrt((stopping_power_air_horizontal_err)**2 + (stopping_power_air_vertical_err)**2)
+
+print(f'The stopping power of air is {stopping_power_air_kev:.3f} KeV/cm +/- {stopping_power_air_kev_err:.3f} KeV/cm')
 
 
 max_energies_helium = []
 max_energies_helium_err = []
 distances_helium = []
+max_distances_helium = []
+min_distances_helium = []
 distances_helium_err = []
 average_pressures_15cm = []
 average_pressures_15cm_err = []
@@ -153,6 +192,13 @@ for index in range(len(pressures_15cm)):
     distance = 15 / factor
     distance_err = np.sqrt((0.05 / factor)**2 + ((15 / factor**2) * factor_err)**2)
     distances_helium.append(distance)
+    
+    max_distance = distance + distance_err
+    min_distance = distance - distance_err
+
+    max_distances_helium.append(max_distance)
+    min_distances_helium.append(min_distance)
+
     distances_helium_err.append(distance_err)
 
 pressures_20cm = [750, 770]
@@ -187,6 +233,13 @@ for index in range(len(pressures_20cm)):
     distance = 20 / factor
     distance_err = np.sqrt((0.05 / factor)**2 + ((20 / factor**2) * factor_err)**2)
     distances_helium.append(distance)
+
+    max_distance = distance + distance_err
+    min_distance = distance - distance_err
+
+    max_distances_helium.append(max_distance)
+    min_distances_helium.append(min_distance)
+
     distances_helium_err.append(distance_err)
 
 # plt.scatter(distances, max_energies)
@@ -200,7 +253,21 @@ measurements_helium = {
     'Distance': distances_helium
 }
 
+measurements_helium_max = {
+    'Max Energy': max_energies_helium,
+    'Max Energy Error': max_energies_helium_err,
+    'Distance': max_distances_helium
+}
+
+measurements_helium_min = {
+    'Max Energy': max_energies_helium,
+    'Max Energy Error': max_energies_helium_err,
+    'Distance': min_distances_helium
+}
+
 df_helium = pd.DataFrame(measurements_helium)
+df_helium_max = pd.DataFrame(measurements_helium_max)
+df_helium_min = pd.DataFrame(measurements_helium_min)
 
 fit_helium = model2.fit(df_helium['Max Energy'], x=df_helium['Distance'], weights=1/df_helium['Max Energy Error'], a=-1, b=5.5)
 fit_helium.plot()
@@ -211,10 +278,22 @@ plt.show()
 stopping_power_helium = fit_helium.params['a'].value
 stopping_power_helium_kev = stopping_power_helium * -1000
 
-stopping_power_helium_err = fit_helium.params['a'].stderr
-stopping_power_helium_kev_err = stopping_power_helium_err * 1000
+fit_helium_max = model2.fit(df_helium_max['Max Energy'], x=df_helium_max['Distance'], weights=1/df_helium_max['Max Energy Error'], a=-1, b=5.5)
+fit_helium_min = model2.fit(df_helium_min['Max Energy'], x=df_helium_min['Distance'], weights=1/df_helium_min['Max Energy Error'], a=-1, b=5.5)
 
-print(f'The stopping power of helium is {stopping_power_helium_kev:.3f} KeV +/- {stopping_power_helium_kev_err:.3f} KeV')
+# minimal stopping power when max distance is used, and vice versa
+stopping_power_helium_min = fit_helium_max.params['a'].value
+stopping_power_helium_min_kev = stopping_power_helium_min * -1000
+
+stopping_power_helium_max = fit_helium_min.params['a'].value
+stopping_power_helium_max_kev = stopping_power_helium_max * -1000
+
+stopping_power_helium_horizontal_err = (stopping_power_helium_max_kev - stopping_power_helium_min_kev) / 2
+stopping_power_helium_vertical_err = fit_helium.params['a'].stderr * 1000
+
+stopping_power_helium_kev_err = np.sqrt((stopping_power_helium_horizontal_err)**2 + (stopping_power_helium_vertical_err)**2)
+
+print(f'The stopping power of helium is {stopping_power_helium_kev:.3f} KeV/cm +/- {stopping_power_helium_kev_err:.3f} KeV/cm')
 
 stopping_powers_factor = stopping_power_air / stopping_power_helium
 
@@ -223,6 +302,13 @@ theoretical_stopping_powers_factor = 1142.5 / 163.85
 print(f'The calculated stopping power ratio air:helium is {stopping_powers_factor:.2f}')
 print(f'The theoretical stopping power ratio air:helium is {theoretical_stopping_powers_factor:.2f}')
 
+max_energy_alpha_kev = max_energy_alpha * 1000
 
-c = 1 - (0.32)**(1/10)
-print(c)
+range_air = max_energy_alpha_kev / stopping_power_air_kev
+range_air_err = (max_energy_alpha_kev * stopping_power_air_kev_err) / (stopping_power_air_kev)**2
+
+range_helium = max_energy_alpha_kev / stopping_power_helium_kev
+range_helium_err = (max_energy_alpha_kev * stopping_power_helium_kev_err) / (stopping_power_helium_kev)**2
+
+print(f'The range of the alpha particles in air is {range_air:.3f} +/- {range_air_err:.3f}')
+print(f'The range of the alpha particles in helium is {range_helium:.3f} +/- {range_helium_err:.3f}')
