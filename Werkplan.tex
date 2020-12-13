@@ -120,11 +120,56 @@ Op de afstand bron-detector zit ook een fout, die net als de fout op de druk doo
 \newpage
 
 \section*{Resultaten}
+Zie figuur \ref{fig:figuur1} voor de resultaten van de metingen met lucht.
 Voor de stopping power van lucht bij atmosferische druk volgt uit de lineaire fit aan de data:
 \begin{equation}
 \text{stopping power}_\mathrm{lucht} = 1.60 \cdot 10^3 \text{ keV/cm} \pm 0.04 \cdot 10^3 \text{ keV/cm}
+\label{eq:stopping_power_lucht}
+\end{equation}
+De gereduceerde $\chi^2$ van de fit is 1,77. Door de maximale energie van de alfadeeltjes te delen door de stopping power volgt voor de dracht in lucht:
+\begin{equation}
+R_\mathrm{\alpha, lucht} = 3,44 \text{ cm} \pm 0,09 \text{ cm}
+\label{eq:range_air}
 \end{equation}
 
+\begin{figure}  % Forceer je figuur niet naar [h]ere. Dat gebeurt in artikelen ook niet.
+\centering
+\includegraphics[scale=0.7]{grafiek_lucht}
+\caption{De overgebleven energie van de alfadeeltjes na een bepaalde afstand door lucht met atmosferische druk gereisd te hebben. De helling van de fitlijn bepaalt de stopping power.}
+\label{fig:figuur1}
+\end{figure}
+
+\newpage
+
+Zie figuur \ref{fig:figuur2} voor de resultaten van de metingen met helium.
+Voor de stopping power van helium bij atmosferische druk volgt uit de lineaire fit aan de data:
+\begin{equation}
+\text{stopping power}_\mathrm{helium} = 215 \text{ keV/cm} \pm 4 \text{ keV/cm}
+\label{eq:stopping_power_lucht}
+\end{equation}
+De gereduceerde $\chi^2$ van de fit is 1,08. Voor de dracht in helium volgt:
+\begin{equation}
+R_\mathrm{\alpha, helium} = 25,4 \text{ cm} \pm 0,5 \text{ cm}
+\label{eq:range_air}
+\end{equation}
+
+\begin{figure}  % Forceer je figuur niet naar [h]ere. Dat gebeurt in artikelen ook niet.
+\centering
+\includegraphics[scale=0.7]{grafiek_helium}
+\caption{De overgebleven energie van de alfadeeltjes na een bepaalde afstand door helium met atmosferische druk gereisd te hebben. De helling van de fitlijn bepaalt de stopping power.}
+\label{fig:figuur2}
+\end{figure}
+
+\newpage
+
+\section*{Conclusie \& Discussie}
+De p-waarde voor de fit van lucht is 0,08. Op basis van een significantielevel van 0,05 hoeft de fit dus niet verworpen te worden. Ook de fit van helium hoeft op basis van hetzelfde significantielevel niet verworpen te worden, want de p-waarde is hier 0,37.
+
+De berekende stopping power van zowel lucht als helium zit niet binnen 20\% van de theoretische waarde. Bij de berekende dracht in beide stoffen is dit wel het geval.
+
+Het feit dat de berekende stopping powers niet overeen komen met de theoretische waardes kan liggen aan een systematische fout in de opstelling. Om deze fout te verkleinen kan de ratio lucht:helium bepaald worden voor zowel de theoretische als de berekende waardes. Bij de theoretische waardes is deze ratio 6,97, en bij de berekende waardes 7,42. Dit ligt redelijk bij elkaar in de buurt, dus het verschil in berekende en theoretische waarde zou voor een deel door de systematische fout in de opstelling veroorzaakt kunnen worden. Aantekening hierbij is wel dat de theoretische waardes uit twee verschillende artikelen gehaald zijn, en hier dus ook een andere systematische fout in de opstelling gezeten kan hebben. Meer onderzoek is nodig om te achterhalen wat de systematische fout in de opstelling is.
+
+De detector is geijkt met maar 1 waarde, omdat alleen de meest voorkomende alfadeeltjes duidelijk uit het histogram gehaald konden worden. Om het aantal pulshoogtes per MeV nauwkeuriger te kunnen bepalen, zou de detector met meerdere bronnen geijkt moeten worden. Zo kan er aan meer energieën gefit worden. Ook is het dan mogelijk een fout op het aantal pulshoogtes per MeV te bepalen.
 
 %\section{Figuren en tabellen}
 %Een voorbeeld van een figuur is op de volgende pagina gegeven, %zie figuur \ref{fig:figuur1}. Figuren staan nóóit in de lopende tekst. Pak een willekeurig artikel en je zult zien dat figuren óf bovenaan een pagina staan, óf onderaan een pagina, óf op een eigen pagina. Nooit in het midden. Probeer dus ook niet met \verb|[h]| o.i.d. de plaatsing van figuren te forceren. Over het algemeen maak je het alleen maar erger.

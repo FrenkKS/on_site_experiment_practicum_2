@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.12.7)  13 DEC 2020 11:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.12.7)  13 DEC 2020 13:32
 entering extended mode
 **./Werkplan.tex
 (Werkplan.tex
@@ -708,6 +708,12 @@ LaTeX3 Warning: Argument delimiter '\ket ' for the command '\bra' should be a
 
 ) (Werkplan.aux
 
+LaTeX Warning: Label `eq:stopping_power_lucht' multiply defined.
+
+
+LaTeX Warning: Label `eq:range_air' multiply defined.
+
+
 ! Package natbib Error: Bibliography not compatible with author-year citations.
 
 (natbib)                Press <return> to continue in numerical citation style.
@@ -717,7 +723,7 @@ See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.49 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.57 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 Check the bibliography entries for non-compliant syntax,
 or select author-year BibTeX style, e.g. plainnat
@@ -878,21 +884,38 @@ LaTeX Font Info:    Font shape `T1/fnc/m/it' will be
 LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
 (Font)              scaled to size 10.18341pt on input line 12.
 ) [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 189.
- [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 189.
+<grafiek_lucht.png, id=68, 462.528pt x 459.6372pt>
+File: grafiek_lucht.png Graphic file (type png)
+<use grafiek_lucht.png>
+Package pdftex.def Info: grafiek_lucht.png  used on input line 137.
+(pdftex.def)             Requested size: 323.76738pt x 321.74385pt.
+ [5 <./grafiek_lucht.png>]
+<grafiek_helium.png, id=80, 462.528pt x 459.6372pt>
+File: grafiek_helium.png Graphic file (type png)
+<use grafiek_helium.png>
+Package pdftex.def Info: grafiek_helium.png  used on input line 158.
+(pdftex.def)             Requested size: 323.76738pt x 321.74385pt.
+ [6 <./grafiek_helium.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 234.
+
+[7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 234.
  (Werkplan.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 189.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 189.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 234.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 234.
 Package rerunfilecheck Info: File `Werkplan.out' has not changed.
 (rerunfilecheck)             Checksum: D65FE931CDD53D5B6DB1E26C4E31B8E0;233.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 189.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 234.
  ) 
 Here is how much of TeX's memory you used:
- 12375 strings out of 481280
- 222646 string characters out of 2906579
- 474721 words of memory out of 3000000
- 27616 multiletter control sequences out of 15000+200000
+ 12403 strings out of 481280
+ 223106 string characters out of 2906579
+ 475241 words of memory out of 3000000
+ 27635 multiletter control sequences out of 15000+200000
  573791 words of font info for 97 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,17n,50p,899b,880s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -904,9 +927,9 @@ fonts/type1/public/fourier/fourier-ms.pfb><C:/Users/frenk/AppData/Local/Program
 s/MiKTeX 2.9/fonts/type1/urw/ncntrsbk/uncb8a.pfb><C:/Users/frenk/AppData/Local/
 Programs/MiKTeX 2.9/fonts/type1/urw/ncntrsbk/uncr8a.pfb><C:/Users/frenk/AppData
 /Local/Programs/MiKTeX 2.9/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
-Output written on Werkplan.pdf (5 pages, 70107 bytes).
+Output written on Werkplan.pdf (7 pages, 119722 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 22 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 124 PDF objects out of 1000 (max. 8388607)
+ 30 named destinations out of 1000 (max. 500000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
