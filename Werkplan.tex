@@ -40,7 +40,7 @@
 %%BEGIN VAN DE INHOUD VAN HET DOCUMENT
 
 \section{Onderzoeksvraag}
-Hoe goed is de stopping power voor en de dracht van alfadeeltjes in lucht, helium en koolstofdioxide te bepalen?
+Is de stopping power voor en de dracht van alfadeeltjes in lucht en helium binnen 20\% van de theoretische waarde te bepalen?
 
 \section{Context}
 Alfadeeltjes zijn hoogenergetische deeltjes die vrijkomen bij bepaalde soorten radioactief verval. Door deze hoge energie zijn ze potentieel schadelijk voor de gezondheid. De relatief hoge massa van alfadeeltjes in combinatie met de hoge energie zorgt echter ook voor een hoog ioniserend vermogen. Hierdoor zullen ze botsen met vrijwel elk deeltje dat ze tegenkomen en zijn ze veel makkelijker af te stoppen dan bijvoorbeeld gammastraling.
@@ -48,20 +48,28 @@ Alfadeeltjes zijn hoogenergetische deeltjes die vrijkomen bij bepaalde soorten r
 \section{Theorie}
 Bij alfa-verval stoot een radioactieve kern een heliumkern uit. Deze heliumkernen worden alfadeeltjes genoemd. Alfadeeltjes zijn relatief veel groter en zwaarder dan bèta- en gammadeeltjes, en hebben ook een veel hogere energie. De energie wordt afgestaan door botsingen met atomen, die daardoor geëxciteerd of geïoniseerd kunnen worden. Door de hoge energie kunnen ze veel meer atomen exciteren en ioniseren dan bijvoorbeeld gammadeeltjes, omdat ze per interactie niet meteen al hun energie verliezen. De grootte en massa en de hoge energie van de alfadeeltjes zorgen echter ook voor een hoog ioniserend vermogen. Dit betekent dat ze botsen met vrijwel elk deeltje dat ze tegenkomen. Hierdoor verliezen ze hun energie veel sneller dan gammadeeltjes en kunnen ze veel minder ver doordringen in een materiaal.\par
 Alfadeeltjes kunnen al gestopt worden door een velletje papier. De kans dat ze door de huid heen komen is dus ook niet zo groot. Alfastraling is daarom vooral schadelijk als de bron het lichaam binnendringt, bijvoorbeeld door inslikken.\par
-Bij dit experiment wordt gebruik gemaakt van een americium-241 bron. Dit is een alfastraler. De vrijgekomen alfadeeltjes hebben een energie rond 5.5 MeV \cite{Americium241}. De precieze energieën en de percentages waarin ze voorkomen staan in tabel \ref{tab:table_1}. \par
+Bij dit experiment wordt gebruik gemaakt van een americium-241 bron. Dit is een alfastraler. De vrijgekomen alfadeeltjes hebben een energie rond 5,5 MeV \cite{Americium241}. De precieze energieën en de percentages waarin ze voorkomen staan in tabel \ref{tab:table_1}. \par
 De stopping power voor een alfadeeltje in een bepaalde stof is gedefinieerd als:
 \begin{equation}
 \mathrm{stopping \ power} \equiv -\frac{\mathrm{d}T}{\mathrm{d}x}
 \label{eq:stopping_power}
 \end{equation}
-waarbij $\mathrm{d}T$ het energieverlies en $\mathrm{d}x$ de afgelegde afstand in het materiaal. Voor de theoretische waarden voor de stopping power, zie tabel \ref{tab:table_2}.\par
-Zoals gezegd verliezen alfadeeltjes energie door atomen te ioniseren. Elke ionisatie kost een gemiddelde energie $\epsilon$. Voor het aantal gevormde ionen $n$ per afgelegde afstand geldt dus:
+waarbij $\mathrm{d}T$ het energieverlies is en $\mathrm{d}x$ de afgelegde afstand in het materiaal. Voor de theoretische waarden voor de stopping power, zie tabel \ref{tab:table_2}.\par
+Uit de energie van het uitgestoten alfadeeltje en de stopping power kan de dracht van het alfadeeltje berekend worden. De dracht geeft aan hoe ver het deeltje in een materiaal kan doordringen voordat het helemaal afgestopt is. Bij alfadeeltjes is deze dracht vrij laag, een paar centimeter. In lucht geldt de volgende relatie tussen de dracht en de energie van een alfadeeltje \cite{RangeAir}:
 \begin{equation}
-n =  -\frac{\mathrm{d}T}{\mathrm{d}x}\frac{1}{\epsilon}
-\label{eq:ioniaties}
+R_\alpha = 0,318 E_\alpha ^{3/2}
+\label{eq:Range_air}
 \end{equation}
-Het aantal geïoniseerde deeltjes kan uitgezet worden tegen de afgelegde afstand in het materiaal in een zogenaamde Bragg-curve. Hieruit kan de dracht van een alfadeeltje in een bepaalde stof geschat worden. De dracht staat voor de maximale afstand die het deeltje kan afleggen in een bepaald materiaal.\par
-Het meten van de alfadeeltjes gebeurt met een surface barrier detector. Deze kan de kinetische energie meten van de binnenkomende deeltjes. De detector is echter heel gevoelig voor licht, en zal daarom afgedekt moeten worden. Er zal echter nog steeds achtergrond-straling binnenkomen. De energie daarvan is echter veel lager dan van de binnenkomende alfadeeltjes, en dus zal met een geschikt high pass filter de achtergrondstraling weggefilterd kunnen worden. Door geschikte waarden te kiezen voor de weerstand en de condensator in het high pass filter, zullen alleen de pieken van de binnenkomende alfadeeltjes nog te zien zijn.
+Hieruit volgt voor de dracht van de meest voorkomende alfadeeltjes uit americium-241 $R_\alpha = 4.09 $ cm. Voor de dracht van dezelfde alfadeeltjes in helium geldt $R_\alpha = 21.4 $ cm \cite{StoppingPowerHelium}.
+
+%Als de dracht van een deeltje in een bepaald medium bekend is, kan de dracht in een ander medium bepaald worden met de Bragg-Kleeman regel \cite{StoppingPowerHelium}:
+%\begin{equation}
+%R_\mathrm{He} = R_\mathrm{lucht} \frac{\rho_\mathrm{lucht}}{\rho_\mathrm{He}} \sqrt{\frac{A_\mathrm{He}}{A_\mathrm{lucht}}}
+%\label{eq:Bragg_Kleeman}
+%\end{equation}
+%met $R$ de dracht, $\rho$ de dichtheid en $A$ het massagetal ($A_\mathrm{lucht} = 28,8 \text{g/mol}$). Invullen geeft voor de dracht van de alfadeeltjes in helium $R_\mathrm{He} = 10,5$ cm.\par
+Het meten van de alfadeeltjes gebeurt met een surface barrier detector. Deze kan de kinetische energie meten van de binnenkomende deeltjes. De detector is echter heel gevoelig voor licht, en zal daarom afgedekt moeten worden. Er zal echter nog steeds achtergrond-straling binnenkomen. De energie daarvan is echter veel lager dan van de binnenkomende alfadeeltjes, en dus zal met een geschikt high pass filter de achtergrondstraling weggefilterd kunnen worden. Door geschikte waarden te kiezen voor de weerstand en de condensator in het high pass filter, zullen alleen de pieken van de binnenkomende alfadeeltjes nog te zien zijn.\par
+Om de stopping power en de dracht te berekenen, moet de afstand van de bron tot de detector aangepast worden. Dit verandert echter de geometrie van de opstelling en dus mogelijk ook de uitkomst van de meting. Om dit te voorkomen wordt niet de afstand van de bron tot de detector gevarieerd, maar de druk in de buis. De druk met een bepaalde factor verminderen heeft namelijk hetzelfde effect als de afstand met diezelfde factor verlagen. Op beide manieren bevinden zich hetzelfde aantal moleculen tussen de bron en de detector. 
 
 \begin{table}
 \caption{Energieën van vrijgekomen alfadeeltjes bij het verval van americium-241, en de percentages waarin het specifieke verval voorkomt. \cite{Americium241}}
@@ -79,26 +87,23 @@ Het meten van de alfadeeltjes gebeurt met een surface barrier detector. Deze kan
 \end{table}
 
 \begin{table}
-\caption{Stopping power voor alfadeeltjes, met energie van ongeveer 5.5 MeV, in lucht, helium en koolstofdioxide. \cite{StoppingPower}}
+\caption{Stopping power voor alfadeeltjes, afkomstig van americium-241, in lucht \cite{StoppingPowerAir} en helium \cite{StoppingPowerHelium}.}
 \centering
-\begin{tabular}{SS}
+\begin{tabular}{SSS}
 \toprule
-{Stof} & {Stopping Power [\si{MeV cm^2/g}]} \\
+{Stof} & {Stopping Power [\si{keV/cm^2}]} & {Fout op Stopping Power [\si{keV/cm^2}]} \\
 \midrule
-{lucht} & 7.122E+02 \\
-{helium} & 8.873E+02 \\
-{koolstofdioxide} & 7.154E+02 \\
+{lucht} &  1142.5 & 47.5\\
+{helium} &  163.85 & 7.29\\
 \bottomrule
 \end{tabular}
 \label{tab:table_2}
 \end{table}
 
 \section{Methode}
-Om de onderzoeksvraag te kunnen beantwoorden moet voor verschillende druk de overgebleven energie van de alfadeeltjes gemeten worden. Dit kan dan weer omgerekend worden naar een variabele afstand bij vaste druk, en hiermee is de stopping power en de dracht te berekenen.\par
-Bouw de opstelling (Pas dit gedeelte aan met beschrijving van de opstelling)\par
-(Meetopstelling in logboek)\par
-IJk de PicoMeter met de theoretische waarde van de alfadeeltjes met de hoogste energie. Zo wordt een formule verkregen voor de energie afhankelijk van de gemeten pulshoogte. \par
-Elke meting duurt 600 seconden. Er kunnen dus ongeveer 10-15 metingen per college gedaan worden. De metingen worden gedaan bij drukken tussen 0 en 750 Torr, oftewel 0 en 1 bar. Voor 10 metingen betekenen dat stappen van ongeveer 83.3 bar. Noteer bij elke meting de begin- en eindstand van de drukmeter en bepaal aan de hand hiervan het gemiddelde en de fout op de druk in de buis.\par
+Voor het beantwoorden van de onderzoeksvraag moet bij verschillende druk de overgebleven energie van het binnenkomende alfadeeltje bepaald worden. Bouw hiertoe eerst de opstelling op de volgende bladzijde.\par
+Het uitlezen van de meetdata gebeurt met een PicoMeter. Die meet de pulshoogte van het binnenkomende signaal. In een histogram wordt vervolgens geplot hoeveel signalen er per pulshoogte binnenkomen. Om de pulshoogte te kunnen koppelen aan een energie, moet de PicoMeter eerst geijkt worden.
+Het ijken gebeurt door de buis van de detector vacuüm te trekken. De uitgezonden alfadeeltjes
 
 \section{Foutenanalyse a priori}
 Bij het verval van americium-241 komen alfadeeltjes vrij met verschillende energieën. Het is van tevoren niet te bepalen welk deeltje vrij zal komen, dus moet hierin een schatting worden gedaan door bijvoorbeeld een gewogen gemiddelde van de verschillende energieën te nemen. Hier zit dan een fout op. \par

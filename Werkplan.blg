@@ -11,4 +11,6 @@ I was expecting a `,' or a `}'---line 71 of file references.bib
  : @article{standaardmodel,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+Warning--empty journal in StoppingPowerHelium
+Warning--empty journal in StoppingPowerAir
 (There were 2 error messages)

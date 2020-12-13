@@ -312,3 +312,12 @@ range_helium_err = (max_energy_alpha_kev * stopping_power_helium_kev_err) / (sto
 
 print(f'The range of the alpha particles in air is {range_air:.3f} +/- {range_air_err:.3f}')
 print(f'The range of the alpha particles in helium is {range_helium:.3f} +/- {range_helium_err:.3f}')
+
+# theoretical_range_helium = 4.09 * (0.001225 / 0.000178) * np.sqrt(4 / 28.8)
+# print(theoretical_range_helium)
+
+range_factor = range_helium / range_air
+theoretical_range_factor = 21.4 / 4.09
+
+print(range_factor, theoretical_range_factor)
+
