@@ -126,7 +126,13 @@ model2 = models.Model(linear, name="linear")
 
 fit_air = model2.fit(df_air['Max Energy'], x=df_air['Distance'], weights=1/df_air['Max Energy Error'], a=-1, b=5.5)
 fit_air.plot()
+plt.ylabel('Remaining Energy (MeV)')
+plt.xlabel('Distance (cm)')
+plt.xlim(0, 3)
+plt.ylim(0, 5.5)
 plt.show()
+
+print(lmfit.report_fit(fit_air))
 
 stopping_power_air = fit_air.params['a'].value
 stopping_power_air_kev = stopping_power_air * -1000
@@ -271,7 +277,13 @@ df_helium_min = pd.DataFrame(measurements_helium_min)
 
 fit_helium = model2.fit(df_helium['Max Energy'], x=df_helium['Distance'], weights=1/df_helium['Max Energy Error'], a=-1, b=5.5)
 fit_helium.plot()
+plt.ylabel('Remaining Energy (MeV)')
+plt.xlabel('Distance (cm)')
+plt.xlim(0, 17)
+plt.ylim(0, 5.5)
 plt.show()
+
+print(lmfit.report_fit(fit_helium))
 
 # print(lmfit.report_fit(fit_2))
 

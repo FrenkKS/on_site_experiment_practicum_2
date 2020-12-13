@@ -101,21 +101,29 @@ Om de stopping power en de dracht te berekenen, moet de afstand van de bron tot 
 \end{table}
 
 \section{Methode}
-Voor het beantwoorden van de onderzoeksvraag moet bij verschillende druk de overgebleven energie van het binnenkomende alfadeeltje bepaald worden. Bouw hiertoe eerst de opstelling op de volgende bladzijde.\par
+Voor het beantwoorden van de onderzoeksvraag moet bij verschillende druk de overgebleven energie van de binnenkomende alfadeeltjes bepaald worden. Bouw hiertoe eerst de opstelling op de volgende bladzijde. Zet een geschikt voltage op de spanningsbron, ongeveer 120 V. Met een weerstand van 1 k$\Omega$ en een condensator van 22 nF filtert het high pass filter voldoende de achtergrondstraling. \par
 Het uitlezen van de meetdata gebeurt met een PicoMeter. Die meet de pulshoogte van het binnenkomende signaal. In een histogram wordt vervolgens geplot hoeveel signalen er per pulshoogte binnenkomen. Om de pulshoogte te kunnen koppelen aan een energie, moet de PicoMeter eerst geijkt worden.
-Het ijken gebeurt door de buis van de detector vacuüm te trekken. De uitgezonden alfadeeltjes
+Het ijken gebeurt door de buis van de detector vacuüm te trekken. De uitgezonden alfadeeltjes komen op weg naar de detector geen andere moleculen tegen om mee te botsen en verliezen dus geen energie. In tabel \ref{tab:table_1} is te zien dat de alfadeeltjes met de hoogste energie het vaakst voorkomen. De hoogste piek in het histogram van het vacuüm zal dus horen bij 5,4857 MeV. Door vervolgens een lineaire fit te doen door de oorsprong en het punt (5,4857; hoogste pulshoogte), is een waarde te berekenen voor het aantal pulshoogtes per MeV. Hiermee kan bij de rest van de metingen de hoogste gemeten pulshoogte omgerekend worden naar de energie van de meest voorkomende deeltjes, door de pulshoogte te delen door deze waarde.\par 
+Omdat behalve de stopping power ook de dracht van de alfadeeltjes bepaald moet worden, is het handig om ervoor te zorgen dat de bron in ieder geval verder dan deze dracht van de detector af staat. Dan zit de dracht in de metingen en is extrapoleren niet nodig. Dit zorgt namelijk voor een grotere fout. Om de gewenste afstand van de bron tot de detector te bepalen, wordt de bron op bepaalde afstand van de detector geplaatst. Vervolgens wordt de druk in de buis verhoogd tot atmosferische druk, en wordt de kap over de buis geplaatst. Na het starten van de meting wordt er gekeken of er een signaal gemeten wordt door de detector. Als dit het geval is, staat de bron te dichtbij. Zo niet, dan is de afstand voldoende.\par
+Vervolgens moet de druk van de lucht in de buis gevarieerd worden, en de overgebleven energie van de alfadeeltjes gemeten. Laat vanaf vacuüm steeds ongeveer 50-100 mbar in de buis lopen en draai de kraan dan weer goed dicht. Noteer de druk in de buis en de afstand van de bron tot de detector. Dek vervolgens de buis af om de achtergrond-straling zo veel mogelijk te beperken. Meet vervolgens gedurende 300 s de binnenkomende straling. Herhaal dit voor alle drukken.\par
+Op een gegeven moment zal de detector geen alfastraling meer meten, te zien aan een histogram met hele lage pieken (tussen 1 en 10), verspreid over het hele spectrum. De druk is dan te hoog voor de alfadeeltjes om de detector nog te kunnen bereiken. Laat dan weer wat lucht uit de buis (100-200 mbar). Door vervolgens de lucht in kleinere stapjes weer in de buis te laten kan nauwkeuriger gezocht worden naar de precieze dracht. \par
+Uiteindelijk zullen er ongeveer 15-20 datapunten verzameld zijn voor lucht. Herhaal vervolgens het hele experiment met helium. Denk eraan dat de afstand van de bron tot de detector aangepast moet worden, omdat de stopping power van helium lager is dan van lucht. Als het meten meerdere dagen duurt, zal elke dag opnieuw een ijking gedaan moeten worden.
 
 \section{Foutenanalyse a priori}
-Bij het verval van americium-241 komen alfadeeltjes vrij met verschillende energieën. Het is van tevoren niet te bepalen welk deeltje vrij zal komen, dus moet hierin een schatting worden gedaan door bijvoorbeeld een gewogen gemiddelde van de verschillende energieën te nemen. Hier zit dan een fout op. \par
-De druk in de buis zal nooit helemaal precies afgesteld kunnen worden, dus hier zal ook een fout in zitten. \par
-De afstand van de bron tot de detector heeft ook een fout. \par
-De gemiddelde energie per ionisatie zal nooit precies kloppen met de werkelijke verloren energie. De fout hierop zal ook berekend moeten worden. \par
-
-
-
+Door het eindige aantal bins in het histogram van de PicoMeter zal er bij elke meting een fout van 1 bin op de maximale gevonden pulshoogte zitten. Deze fout werkt door op de maximale overgebleven energie.\par
+Op de gemeten druk zit een fout, omdat het aflezen nooit helemaal precies is. Deze fout werkt door in de afstand van de bron tot de detector. Met deze afstand wordt de uiteindelijke stopping power berekend, dus daar komt ook een fout op. \par
+Op de afstand bron-detector zit ook een fout, die net als de fout op de druk doorwerkt in de berekende afstand.
 
 \bibliographystyle{science}
 \bibliography{references}
+
+\newpage
+
+\section*{Resultaten}
+Voor de stopping power van lucht bij atmosferische druk volgt uit de lineaire fit aan de data:
+\begin{equation}
+\text{stopping power}_\mathrm{lucht} = 1.60 \cdot 10^3 \text{ keV/cm} \pm 0.04 \cdot 10^3 \text{ keV/cm}
+\end{equation}
 
 
 %\section{Figuren en tabellen}
